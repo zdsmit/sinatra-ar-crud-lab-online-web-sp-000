@@ -15,7 +15,14 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  post "/articles" do
+  post '/articles' do
+    @article = Article.new(title:params[:title], content: params[:article_content])
     erb :show
   end
+
+  get 'articles/:id/edit' do
+    erb :edit
+  end
+
+
 end
